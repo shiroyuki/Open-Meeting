@@ -1,0 +1,3 @@
+#page.alert "Revoked the invitation";
+page << "put_away_black_screen();"
+page << "add_notifier('Revoked the invitation.');"

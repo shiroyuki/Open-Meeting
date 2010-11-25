@@ -1,0 +1,46 @@
+<% if auth_valid? %>
+<ul class="commands">
+  <li><%= link_to 'Meetings (<span class="datetime">' + get_time_format(Time.new) + '</span>)', meetings_path, :class => "ima" %></li>
+  <li><%= link_to 'Create a new meeting &#8594;', new_meeting_path %></li>
+</ul>
+<% end %>
+<div class="meetings">
+  <h1>Listing meetings</h1>
+
+  <table cellpadding="0" cellspacing="0" border="0">
+    <% if @meetings.size == 0 %>
+    <tr>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td colspan="3">Empty</td>
+    </tr>
+    <% else %>
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+      </tr>
+      <% @meetings.each do |meeting| %>
+        <%  if accessible? meeting %>
+        <tr class="mstate-<%= meeting_state meeting  %>">
+          <td>
+            <%= link_to meeting.title, meeting %>
+            <% if show_all_meetings? %>
+            by <%=h meeting.organizer %>
+            <% end %>
+          </td>
+          <td><%=h get_time_status meeting %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </table>
+
+  <p class="hidden">Pages:</p>
+
+  <ul class="pages">
+    <% @page_number[:set_leader].upto(@page_number[:set_final]) {|page_number| %>
+    <li><%= link_to page_number.to_s, "?p=" + page_number.to_s %></li>
+    <% } %>
+  </ul>
+</div>

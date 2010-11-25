@@ -1,0 +1,412 @@
+* {
+    outline: none;
+}
+
+body {
+    background-image: url('../images/header-bg.png');
+    background-position: center top;
+    background-repeat: repeat-x;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+a, a:link, a:visited, a:active {
+    color: #215498;
+}
+
+a:hover {
+    color: #cc0000;
+    background: none;
+}
+
+p {
+    margin:0 0 10px 0;
+    padding:0;
+}
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+th {
+    text-align: left;
+}
+
+select {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-top-color: #999;
+    border-left-color: #999;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-top-color: #999;
+    border-left-color: #999;
+    font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    background: #ffffee;
+}
+
+input[disabled][type="text"] {
+    border: 1px solid #ccc;
+    background-color: #eee;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+    cursor: pointer;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    padding: 2px 10px;
+    border: 2px solid #ccc;
+    color: #333;
+    background-color: #fff;
+    font-size: 14px;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover {
+    color: #fff;
+    background-color: #277395;
+    border-color: #055173;
+}
+
+body > div {
+    width: 880px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+/**** Reusable patterns *******************************************************/
+.hidden {
+    display: none;
+}
+
+.form-successor {
+    padding: 8px 0;
+    overflow: hidden;
+}
+
+.form-successor a {
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 2px solid #ddd;
+    color: #666;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.form-successor a:hover {
+    color: #fff;
+    background-color: #277395;
+    border-color: #055173;
+}
+
+/**** Black Screen ************************************************************/
+#bscr {
+    z-index: 50;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    color: #000;
+    padding: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: auto !important;
+}
+
+/**** Header ******************************************************************/
+#header {
+    padding-top: 20px;
+    position:relative;
+    height: 50px;
+}
+
+#brand {
+    /*border-bottom: 1px solid #ccc;*/
+    padding-bottom: 5px;
+}
+
+#brand a {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+#brand a sup {
+    font-size: 11px;
+}
+
+#brand a:hover {
+    background-color: #ffffee;
+}
+
+#user-ctrl {
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    overflow: hidden;
+}
+
+#user-ctrl a {
+    display: block;
+    float: left;
+    padding: 3px 10px;
+    background-color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
+
+#user-ctrl a:hover {
+    background-color: #277395;
+}
+
+#user-ctrl a[href="#signin"] {
+    margin-right: 1px;
+
+    border-top-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+}
+
+#user-ctrl a.no-radius {
+    margin-right: 1px;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+#user-ctrl a[href="#signup"] {
+    border-top-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    -webkit-border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+
+    background-color: #666;
+}
+
+#header form {
+    background-color: #eee;
+    padding: 3px 10px;
+    border-bottom: 3px solid #ddd;
+}
+
+#header > p {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+/**** Footer ******************************************************************/
+#footer {
+    font-size: 12px;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
+#footer p {
+    padding-top: 10px;
+}
+
+#footer ul {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+}
+
+#footer ul li {
+    padding: 0 5px;
+    border-left: 1px solid #ddd;
+}
+
+#footer ul:first-child li:first-child {
+    padding-left: 0;
+    border: none;
+}
+
+#footer ul:last-child li:first-child {
+    padding-right: 0;
+}
+
+#footer ul:last-child li:last-child {
+    padding-left: 0;
+    border: none;
+}
+
+#footer-nav {
+    overflow: hidden;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+#footer-nav ul:first-child li {
+    float: left;
+}
+
+#footer-nav ul:last-child li {
+    float: right;
+}
+
+/***** Content ****************************************************************/
+#content {
+    padding-bottom: 40px;
+}
+
+#content ul {
+    list-style: square;
+    padding-left: 25px;
+    padding-bottom: 10px;
+}
+
+#content ol {
+    list-style: decimal;
+    padding-left: 25px;
+    padding-bottom: 10px;
+}
+
+/***** Notifier ****************************************************************/
+#notifier {
+    display: block;
+    float: none;
+    padding: 10px 0;
+}
+
+#notifier p {
+    padding: 5px 30px;
+    background-color: #666;
+    color: #ccc;
+    margin-bottom: 1px;
+
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: #ccc 0 0 10px;
+    -moz-box-shadow: #ccc 0 0 10px;
+    -webkit-box-shadow: #ccc 0 0 10px;
+}
+
+/***** Commands ****************************************************************/
+.commands {
+    list-style: none !important;
+    margin-bottom: -25px;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.commands a {
+    float: left;
+    display: block;
+    color: #000;
+    padding: 5px 10px;
+    margin-right: 1px;
+    text-decoration: none;
+    background-color: #eee;
+}
+
+.commands a:hover {
+    color: #fff;
+    background-color: #999;
+}
+
+.commands a.ima {
+    color: #fff;
+    background-color: #277395;
+}
+
+.commands li:first-child a {
+    border-top-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+}
+
+.commands li:last-child a {
+    border-top-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+}
+
+/**** How it works > Feature comparison ***************************************/
+.feature-comparison {
+    width: 100%;
+    border: 2px solid #ddd;
+    margin-bottom: 20px;
+    
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.feature-comparison th {
+    color: #999;
+    font-weight: normal;
+    padding: 5px 10px;
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+}
+
+.feature-comparison th:first-child {
+    text-align: left;
+}
+
+.feature-comparison td {
+    vertical-align: top;
+    padding: 5px 10px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.feature-comparison td:first-child {
+    text-align: left;
+}
+
+/**** Intro *******************************************************************/
+.form-successor.intro {
+    padding-top: 30px;
+    font-size: 20px;
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+<ul class="commands">
+  <li><%= link_to 'Meetings (<span class="datetime">' + get_time_format(Time.new) + '</span>)', meetings_path %></li>
+  <li><%= link_to 'Create a new meeting &#8594;', new_meeting_path, :class => "ima" %></li>
+</ul>
+<div class="meeting">
+  <h1>New meeting</h1>
+  <p>Current time: <span class="datetime"><%= get_time_format Time.new %></span></p>
+  <%= render :partial => 'prompt_meeting_record', :locals => {:submit_label => 'Set up this meeting'} %>
+</div>

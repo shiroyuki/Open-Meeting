@@ -1,0 +1,4 @@
+## YAML Template.
+---
+security:
+   authorize_everyone: false

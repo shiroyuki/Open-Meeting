@@ -1,0 +1,52 @@
+<% form_for(@meeting) do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field :organizer, :value => auth_info[:user] %>
+  <div class="left">
+    <p>
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :start, "When it starts? (UTC)" %><br />
+      <%= f.datetime_select :start %>
+    </p>
+    <p>
+      <%= f.label :finish, "When it finishes? (UTC)" %><br />
+      <%= f.datetime_select :finish %>
+    </p>
+    <p>
+      <%= f.label :status %><br />
+      <select name="meeting[status]" id="meeting_status">
+        <% 0.upto(7) { |status_code| %>
+          <% if @meeting.status.to_i == status_code %>
+            <option value="<%= status_code %>" selected="selected"><%= get_status_label status_code %></option>
+          <% else %>
+            <option value="<%= status_code %>"><%= get_status_label status_code %></option>
+          <% end %>
+        <% } %>
+        <% if @meeting.status.to_i == 8 %>
+            <option value="8" selected="selected"><%= get_status_label 8 %></option>
+        <% elsif @meeting.status.to_i >= 6 %>
+            <option value="8"><%= get_status_label 8 %></option>
+        <% end %>
+      </select>
+    </p>
+    <p>
+      <%= f.label :key %><br />
+      <%= f.text_field :key %>
+    </p>
+    <% if controller.action_name == "edit" %>
+    <p>
+      <input id="do_notify" type="checkbox" name="do_notify"/>
+      <label for="do_notify">Notify all participants</label>
+    </p>
+    <% end %>
+    <p><%= f.submit submit_label %></p>
+  </div>
+  <div class="right">
+    <p>
+      <%= f.label :note, "Note (no HTML code)" %><br />
+      <%= f.text_area :note %>
+    </p>
+  </div>
+<% end %>

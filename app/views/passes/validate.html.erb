@@ -1,0 +1,12 @@
+<% content_for :m_title do %>Pass validation<% end %>
+
+<h1>Your pass is <%= @status %>.</h1>
+<p>Thanks for checking!</p>
+<!--
+<ul>
+  <% session.each { |k, v| %>
+  <li><%= k %> &#8594; <%= v %></li>
+  <% } %>
+</ul>
+-->
+<p class="form-successor"><a href="/">Continue &#8594;</a></p>

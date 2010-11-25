@@ -1,0 +1,83 @@
+<div id="participants">
+  <p class="form-successor">
+    <% if access_with_invitation? %>
+    <a href="#respond">Respond to the invitation</a>
+    <% end %>
+    <% if meeting_state(@meeting) < 3 and (own?(@meeting) or meeting_registrable?(@meeting)) %>
+    <a href="#invite">Invite people</a>
+    <% end %>
+  </p>
+  <% if access_with_invitation? %>
+    <% remote_form_for [@meeting, @active_participant] do |f| %>
+      <h2><%= @active_participant.name %></h2>
+      <ol>
+        <li>
+          <%= f.label :status, "I think I plan to" %>
+          <select name="participant[status]" id="participant_status">
+          <% 1.upto(4) { |status_code| %>
+            <% if @active_participant.status.to_i == status_code %>
+              <option value="<%= status_code %>" selected="selected"><%= participant_status_label(status_code, true).downcase %></option>
+            <% else %>
+              <option value="<%= status_code %>"><%= participant_status_label(status_code, true).downcase %></option>
+            <% end %>
+          <% } %>
+          </select>.
+        </li>
+        <li class="extra-info">
+          <%= f.label :name, "My name is" %>
+          <%= f.text_field :name %>.
+        </li>
+        <li class="extra-note">
+          <%= f.label :note, "Additional note" %><br/>
+          <%= f.text_area :note %>
+        </li>
+      </ol>
+      <p class="actions">
+        <button class="change-info">correct your name</button>
+        <button class="leave-a-note">leave a note</button>
+        <button type="submit">update</button>
+        <button type="reset">give me more time (cancel)</button>
+      </p>
+    <% end %>
+  <% end %>
+  <% if meeting_state(@meeting) < 3 and (own?(@meeting) or meeting_registrable?(@meeting)) %>
+    <% remote_form_for [@meeting, Participant.new] do |f| %>
+      <h2>Invite people</h2>
+      <ol>
+        <li>
+          <%= f.label :name %><br/>
+          <%= f.text_field :name %>
+        </li>
+        <li>
+          <%= f.label :email %><br/>
+          <%= f.text_field :email %>
+        </li>
+        <li>
+          <%= f.label :note, "Additional note", :class => "hidden" %><br/>
+          <%= f.text_area :note, :class => "hidden" %>
+        </li>
+      </ol>
+      <p class="actions">
+        <%= f.submit "Invite" %>
+        <button type="reset">Cancel</button>
+      </p>
+    <% end %>
+  <% end %>
+  <div class="idcard">
+    <p class="form-successor"><a href="#hide">&#8593; Hide this information</a></p>
+    <h2>Participant information</h2>
+    <span class="note"></span>
+    <span class="name"></span>
+    <span class="email"></span>
+    <span class="status"></span>
+  </div>
+  <h2>Participants</h2>
+  <p>
+    <strong>Open Meeting</strong> recognizes both invitees and attendees as
+    participants. As he or she definitely attends the meeting, the organizer
+    might not be included on the list of participants.
+  </p>
+  <ol id="participants_list" class="participants">
+  <%= render :partial => @meeting.participants %>
+  </ol>
+</div>

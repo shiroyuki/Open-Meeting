@@ -1,0 +1,93 @@
+<h1>How it works</h1>
+<p>
+  As Open Meeting is made for simplicity, so it has basic unbreakable rules
+  used across the system.
+</p>
+<table border="0" cellpadding="0" cellspacing="0" class="feature-comparison <% if !auth_valid? %>n<% end %>auth">
+  <tr>
+    <th>Feature</th>
+    <th>Anonymous users</th>
+    <th>Invitee or attendee</th>
+    <th>Authenticated users</th>
+  </tr>
+  <tr>
+    <td>Set up and organize meetings</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Change the information of a particular meeting</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes (1)</td>
+  </tr>
+  <tr>
+    <td>View the information of public meetings</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>View the information of protected meetings</td>
+    <td>Yes (2)</td>
+    <td>Yes</td>
+    <td>Yes (1)</td>
+  </tr>
+  <tr>
+    <td>Invite people to join a public meeting</td>
+    <td>Yes (3)</td>
+    <td>Yes (3)</td>
+    <td>Yes (1)</td>
+  </tr>
+  <tr>
+    <td>Invite people to join a protected meeting</td>
+    <td>No</td>
+    <td>Yes (3)</td>
+    <td>Yes (1)</td>
+  </tr>
+  <tr>
+    <td>Revoke the invitation from invitees or attendees</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes (1)</td>
+  </tr>
+  <tr>
+    <td>Respond to meetings</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No (4)</td>
+  </tr>
+  <tr>
+    <td>View notes left by participants</td>
+    <td>Yes (2)</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>View notes left by participants</td>
+    <td>Yes (2)</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Edit notes left by participants</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+</table>
+<p>
+  The numbers used in the table above stands for the following conditions.
+</p>
+<ol>
+  <li>If the user owns the meeting.</li>
+  <li>If the user is authorized to access the protected data or the data is public.</li>
+  <li>If the meeting is open for registration or everyone is allowed to participate.</li>
+  <li>
+    The meeting organizer is assumed to attend the meeting. Inviting yourself
+    does not mean the invitation ties to your account. It is possible to do but
+    it is a good practice not to invite yourself.
+  </li>
+  <li>Only the participant can edit his own note.</li>
+</ol>

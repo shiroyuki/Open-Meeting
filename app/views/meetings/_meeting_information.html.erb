@@ -1,0 +1,29 @@
+<div class="meeting">
+  <%= render :partial => 'show_meeting_organizer' %>
+  <h1><%=h @meeting.title %></h1>
+  <div class="time">
+    <div class="when"><span class="hidden">When: </span><%= get_meeting_when @meeting %></div>
+    <div class="duration">The length of this meeting is <span><%= get_time_duration @meeting %></span>.</div>
+    <div class="remaining-time"><%= get_time_status @meeting %></div>
+  </div>
+  <div class="note"><%= h @meeting.note %></div>
+  <% if (!auth_valid? or !own? @meeting) and protected? @meeting %>
+  <div class="warning">
+    <p>
+      This meeting is protected by the organizer. Being accessible to this page
+      means you are trusted and authorized to view and attend the meeting.
+      Please note that the information here might be confidential.
+    </p>
+  </div>
+  <% elsif auth_valid? and own? @meeting and protected? @meeting %>
+  <div class="instruction">
+    <p>
+      To allow the intended participants or even yourself (before login) to
+      access, please bookmark or share the link below.
+    </p>
+    <p>
+      <%= link_to get_secure_url, get_secure_url, :class => "shared-url" %>
+    </p>
+  </div>
+  <% end %>
+</div>

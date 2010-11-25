@@ -1,0 +1,16 @@
+if @participant.nil?
+  #page.alert "This email might already be used or it is malform."
+  page << "add_notifier('#{@notice}');"
+  page << "put_away_black_screen();"
+else
+  page.insert_html :bottom, :participants_list, :partial => @participant
+  page[@participant].visual_effect :highlight
+  page[:new_participant].reset
+  if !is_stable_release?
+    page << "add_notifier('Confirmation URL is " + @meeting_url + "');"
+  else
+    page << "add_notifier('Just sent the invitation.');"
+  end
+  page << "put_away_black_screen();"
+  page << '$j("#participants .new_participant button[type=reset]").click();'
+end

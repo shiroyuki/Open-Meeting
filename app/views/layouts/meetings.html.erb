@@ -1,0 +1,5 @@
+<% content_for :m_title do %><%= get_window_title %><% end %>
+<%= render :partial => '/layouts/header' %>
+<div id="notifier"><%= notice %></div>
+<%= yield %>
+<%= render :partial => '/layouts/footer' %>

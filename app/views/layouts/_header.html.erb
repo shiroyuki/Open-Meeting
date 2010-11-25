@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <!--
+    Project:    Open Meeting
+    Author:     Juti Noppornpitak (http://shiroyuki.com)
+    Framework:  Ruby on Rails 2.3.8 (mainly) and Yotsuba 3-dev (experimental)
+    Started on: Monday, May 31, 2010 9:46 PM
+    Standards:  HTML 5 (Draft), CSS 3 (Draft)
+    -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Open Meeting (pre-alpha) - <%= yield :m_title %></title>
+    <%= stylesheet_link_tag "scaffold", "base", "style" %>
+    <%= javascript_include_tag "prototype", "effects", "dragdrop", "controls", "application", "jquery", "canvas", "core_basic" %>
+    <% if auth_valid? %>
+    <%= javascript_include_tag "core_auth" %>
+    <% else %>
+    <%= javascript_include_tag "core_nauth" %>
+    <% end %>
+  </head>
+  <body>
+    <div id="header">
+      <div id="brand"><a href="/">Open Meeting <sup>(pre-alpha)</sup></a></div>
+      <div id="user-ctrl">
+        <% if auth_valid? %>
+        <span class="hidden">
+          <a href="#signout">Sign out</a>
+        </span>
+        <a href="/passes/checkout">Disconnect from Twitter</a>
+        <% else %>
+        <span class="hidden">
+          <a href="#signin">Sign in with Oz</a>
+          <a href="#signup">Sign up &#8594;</a>
+        </span>
+        <a href="/passes/checkin?oauth=use_twitter">Connect with Twitter &#8594;</a>
+        <% end %>
+      </div>
+      <% if auth_valid? %>
+      <p>
+        Signed in as
+        <% if auth_valid_with_twitter? %>
+        <%= link_to auth_info[:user], twitter_get_home(auth_info[:user]) %>
+        via <%= link_to 'Twitter', twitter_get_home %>
+        <% else %>
+        <%= link_to auth_info[:user], get_path_to_oz('users/' + auth_info[:user]) %>
+        via <%= link_to 'Oz', get_path_to_oz %>
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to "Learn about Open Meeting", '/about' %>
+        or <%= link_to "see all public meetings", :controller => :meetings, :action => :index %>
+      </p>
+      <form id="signin" action="/passes/checkin" method="post" class="hidden">
+        <label for="username">&#8674; Username</label>
+        <input type="text" name="username" id="username" value="shiroyuki" />
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" value="xfxiBcxT" />
+        <button type="submit">Sign in</button>
+        <button type="reset">Cancel</button>
+      </form>
+      <% end %>
+    </div>
+    <div id="content">

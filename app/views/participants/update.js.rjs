@@ -1,0 +1,15 @@
+if !@notice.nil?
+  page << "add_notifier('#{@notice}');"
+else
+  page << "add_notifier('Status updated!');"
+  page << "put_away_black_screen();"
+  page << '$j("#participants .edit_participant button[type=reset]").click();'
+  page << '$j("#participants .edit_participant input[type=text]").val("' + @participant.name.to_s + '");'
+  page << '$j("#participants .edit_participant select").val(' + @participant.status.to_s + ');'
+  page << '$j("#participants .edit_participant textarea").val("' + @participant.note.to_s.strip.gsub(/\n/, '\\n') + '");'
+  page << '$j("#participants #participant_' + @participant.id.to_s + ' .status").html("' + participant_status_label(@participant.status.to_s) + '");'
+  page << '$j("#participants #participant_' + @participant.id.to_s + ' .name").html("' + @participant.name.to_s + '");'
+  page << '$j("#participants #participant_' + @participant.id.to_s + ' .note").html("' + @participant.note.to_s.strip.gsub(/\n/, '<br/>') + '");'
+  page << '$j("#participants #participant_' + @participant.id.to_s + ' .invited_at").html("' + time_ago_in_words(@participant.updated_at) + '");'
+  page << '$j("#participants #participant_' + @participant.id.to_s + ' .meta").removeClass("pstate-0 pstate-1 pstate-2 pstate-3 pstate-4").addClass("pstate-' + @participant.status.to_s + '");'
+end

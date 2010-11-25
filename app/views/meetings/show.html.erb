@@ -1,0 +1,12 @@
+<ul class="commands">
+  <li><%= link_to '&#8592; Back', meetings_path %></li>
+  <li><%= link_to "Meeting", @meeting, :class => "ima" %></li>
+  <% if auth_valid? and own? @meeting %>
+    <li><%= link_to 'Delete', @meeting, :confirm => 'Are you sure?', :method => :delete %></li>
+    <% if meeting_state(@meeting) < 3 %>
+      <li><%= link_to 'Edit &#8594;', edit_meeting_path(@meeting) %></li>
+    <% end %>
+  <% end %>
+</ul>
+<%= render :partial => 'meeting_information' %>
+<%= render :partial => 'meeting_participants' %>

@@ -1,0 +1,26 @@
+<ul class="extra">
+  <li><%= link_to '&#8592; Back', meetings_path %></li>
+</ul>
+<div class="meeting">
+  <h1>Unauthorized Access</h1>
+  <p>
+    The information of the requested meeting is protected by the word of gods
+    that only a few people, gods or perhaps hackers know. If you know who
+    organizes it up and still want to electronically record your participation,
+    contact the organizer.
+  </p>
+  <!--
+  <% if not protected? @meeting %>
+  <p>Reason: The information is protected.</p>
+  <% end %>
+  <% if not accessible? @meeting %>
+  <p>Reason: Overall, you aren't authorized.</p>
+  <% end %>
+  <% if not own? @meeting %>
+  <p>Reason: You didn't own.</p>
+  <% end %>
+  <% if not has_authorized_key? @meeting %>
+  <p>Reason: You don't have the compatible authorization key.</p>
+  <% end %>
+  -->
+</div>

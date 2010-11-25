@@ -1,0 +1,29 @@
+<% content_for :m_title do %>Welcome<% end %>
+
+<h1>Welcome<% if auth_valid? %>, <%= auth_info[:alias] %><% end %></h1>
+<p>
+  <strong>Open Meeting</strong> is to help you (yes, you!) and your friends to
+  organize any events easier better and faster. (<a href="/about">more</a>)
+</p>
+<% if auth_valid? %>
+<p>
+  Now, you are authenticated. Please note that Open Meeting is available under
+  fair uses and internationally legal uses.
+</p>
+<% else %>
+<p>
+  To organize and manage meetings with Open Meeting, your Twitter account
+  is required for now. If you don't have one, you can <%= link_to "sign up", "http://twitter.com/signup" %>
+  But hey, even you are not logged in, you may see any public meetings and perhaps
+  join any open-registration meetings.
+</p>
+<% end %>
+<p class="form-successor intro">
+  <a href="/how_it_works">See what you can do now</a>
+  <a href="#video" class="hidden">See the demo video</a>
+  <% if auth_valid? %>
+  <a href="/meetings">Get started &#8594;</a>
+  <% else %>
+  <a href="/meetings">See the list of public meetings &#8594;</a>
+  <% end %>
+</p>

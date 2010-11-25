@@ -1,0 +1,8 @@
+<div class="organizer">
+  <% if protected? @meeting %>
+  <%= link_to "Protected", get_secure_url, :class => "shared-url" %>
+  <% end %>
+  <span class="hidden">Organizer: </span>
+  <%= link_to @meeting.organizer, twitter_get_home(@meeting.organizer), :class => "twitter-anywhere-user" %>
+  <strong><%= get_status_label @meeting.status %></strong>
+</div>

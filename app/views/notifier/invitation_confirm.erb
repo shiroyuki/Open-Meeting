@@ -1,0 +1,32 @@
+<p>
+  <%= @organizer[:alias] %> just updated the information for the following meeting.
+</p>
+
+<p style="padding:20px;">
+<span style="font-size:16px;"><a href="<%= @meeting_url %>&pid=<%= @participant.id %>&response=<%= @response_id %>"><%= @meeting.title %></a></span>
+<br/>begins at <%= @meeting.start %>.
+</p>
+
+<p>
+  The updated information ONLY shows on the website and won't be distributed.
+  On the website, the time is converted into your local timezone and you can
+  see who are in.
+</p>
+
+<p>
+  To respond to this invitation or update your status, please use the following
+  link instead:<br/>
+  <a href="<%= @meeting_url %>&pid=<%= @participant.id %>&response=<%= @response_id %>"><%= @meeting_url %>&pid=<%= @participant.id %>&response=<%= @response_id %></a>
+</p>
+
+<p>
+  If you plan NOT to attend and receive any updates about this meeting. Please
+  change your response to "ignore". Open Meeting may send you the updates only
+  if your response is NOT "ignored".
+</p>
+
+<div style="color: #999; font-size: 10px;">
+<p>See the privacy policy and terms of services at <a href="http://om.shiroyuki.com">Open Meeting</a>.</p>
+<p>If you have any suggestion, please contact <a href="http://push.shiroyuki.com">Juti</a>.</p>
+<p>&copy; 2010 <a href="http://shiroyuki.com/about">Juti Noppornpitak</a> / <a href="http://shiroyuki.com">Shiroyuki Studio</a>.</p>
+</div>

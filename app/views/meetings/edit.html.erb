@@ -1,0 +1,12 @@
+<ul class="commands">
+  <li><%= link_to '&#8592; Back', meetings_path %></li>
+  <li><%= link_to "Cancel editing", @meeting %></li>
+  <li><%= link_to 'Delete', @meeting, :confirm => 'Are you sure?', :method => :delete %></li>
+  <li><%= link_to 'Edit &#8594;', edit_meeting_path(@meeting), :class => "ima" %></li>
+</ul>
+<div class="meeting">
+  <%= render :partial => 'show_meeting_organizer' %>
+  <h1>Editing meeting</h1>
+  <p>Current time: <span class="datetime"><%= get_time_format Time.new %></span></p>
+  <%= render :partial => 'prompt_meeting_record', :locals => {:submit_label => 'Update the information'} %>
+</div>

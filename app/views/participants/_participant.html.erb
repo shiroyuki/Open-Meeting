@@ -1,0 +1,18 @@
+<% content_tag_for :li, participant do %>
+  <span class="meta pstate-<%= participant.status %>">
+    <span class="name"><%= participant.name %></span>
+    <span class="id"><%= participant.id %></span>
+    <span class="status"><%= participant_status_label participant.status %></span>
+    <span class="invited_at"><%= time_ago_in_words participant.updated_at %></span>
+    <% if own? @meeting %>
+      <span class="hidden">(</span><span class="email"><%= participant.email %></span><span class="hidden">)</span>
+      <%= link_to '&times;', participant, :class => "delete", :confirm => 'You are about to revoke the invitation for this person. Are you sure?', :method => :delete %>
+    <% end %>
+  </span>
+  <span class="note">
+    <% if participant.note? %>
+    <%= h participant.note.strip %>
+    <% end %>
+  </span>
+  <a href="#info" title="Information">?</a>
+<% end %>

@@ -1,0 +1,310 @@
+/**** Meeting/Participants ****************************************************/
+#participants {
+    overflow: hidden;
+    background-color: #eee;
+    margin: 0 10px;
+    padding-bottom: 20px;
+
+    border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+}
+#participants > * {
+    padding-left:20px;
+    padding-right:20px;
+}
+
+#participants h2 {
+    font-weight: normal;
+    color: #000;
+    margin: 10px 0;
+}
+
+#participants .form-successor {
+    float: right;
+}
+
+#participants .form-successor a {
+    font-size: 13px;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+#participants .form-successor a:hover {
+    background-color: #277395;
+    border-color: #055173;
+}
+
+#participants .form-successor a[href="#respond"] {
+    font-size: 13px;
+    color: #000;
+    background-color: #fff;
+    border-color: #99cc66;
+}
+
+#participants .form-successor a[href="#respond"]:hover {
+    color: #fff;
+    background-color: #88bb55;
+    border-color: #669933;
+}
+
+#participants form,
+#participants .idcard {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: 1px dashed #ddd;
+    margin-top: -11px;
+    margin-bottom: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    /*width: 818px;*/
+    /*margin-left: 100px;
+    width: 618px;*/
+    margin-left: -10px;
+    width: 838px;
+
+    box-shadow: #ccc 0 5px 10px;
+    -moz-box-shadow: #ccc 0 5px 10px;
+    -webkit-box-shadow: #ccc 0 5px 10px;
+    border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+}
+
+#participants form label {
+    font-size: 12px;
+}
+
+#participants form ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+#participants form ol li {
+    float: left;
+    width: 290px;
+    margin-left: 30px;
+}
+
+#participants form ol li input[type=text] {
+    width: 99%;
+}
+
+#participants form ol li:first-child {
+    margin-left: 0;
+}
+
+#participants form ol li:last-child {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+#participants form p.actions {
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: right;
+    border-top: 1px dotted #eee;
+}
+
+#participants form #participant_note {
+    width: 95%;
+    min-width: 95%;
+    max-width: 95%;
+    height: 80px;
+    border-width: 0px;
+    font-family: 'Georgia', serif;
+    background-color: #ffffcc;
+    padding: 6px;
+    margin: 10px;
+
+    box-shadow: #ccc 0 0 5px;
+    -moz-box-shadow: #ccc 0 0 5px;
+    -webkit-box-shadow: #ccc 0 0 5px;
+}
+
+#participants form #participant_note:focus {
+    border-width: 1px;
+    padding: 5px;
+    background-color: #ffffee;
+}
+
+#participants form.edit_participant {
+    display: block;
+}
+
+#participants form.edit_participant label {
+    font-size: 16px;
+}
+
+#participants form.edit_participant input[type="text"] {
+    width: 50%;
+}
+
+#participants form.edit_participant select {
+    -moz-border-radius: 5px;
+}
+
+#participants form.edit_participant li {
+    width: auto;
+    float: none;
+    margin: 0;
+    /*display: none;*/
+}
+
+#participants form.edit_participant li:first-child {
+    display: block;
+}
+
+#participants form.edit_participant li:last-child label {
+    display: none;
+}
+
+#participants form.edit_participant li.extra-info,
+#participants form.edit_participant li.extra-note {
+    display: none;
+}
+
+#participants .idcard {
+    padding-bottom: 20px;
+}
+
+#participants .idcard > * {
+    display: block;
+}
+
+#participants .idcard h2 {
+    font-size: 12px;
+    font-weight: normal;
+    color: #ccc;
+}
+
+#participants .idcard .name {
+    font-size: 20px;
+}
+
+#participants .idcard .email,
+#participants .idcard .status {
+    font-size: 13px;
+    padding-left: 10px;
+    border-left: 1px solid #ddd;
+    color: #666;
+}
+
+#participants .idcard .note {
+    white-space: pre-line;
+    font-size: 13px;
+    font-family: 'Georgia', serif;
+
+    float: right;
+    width: 50%;
+    height: 80px;
+    border-width: 0px;
+    font-family: 'Georgia', serif;
+    background-color: #ffffcc;
+    padding: 6px;
+    margin: 10px;
+
+    box-shadow: #ccc 0 0 5px;
+    -moz-box-shadow: #ccc 0 0 5px;
+    -webkit-box-shadow: #ccc 0 0 5px;
+}
+
+#participants .idcard .form-successor {
+    margin-bottom: -20px;
+}
+
+#participants .participants {
+    overflow: hidden;
+    padding-left: 20px;
+    padding-bottom: 0;
+}
+
+#participants .participants .participant {
+    position: relative;
+    float: left;
+    width: 71px;
+    height: 71px;
+    overflow: hidden;
+    padding: 5px;
+    margin: 0 0 1px 1px;
+    background-color: #fff;
+    color: #888;
+}
+
+#participants .participants .participant .meta .id,
+#participants .participants .participant .meta .email,
+#participants .participants .participant .meta .status,
+#participants .participants .participant .meta .invited_at,
+#participants .participants .participant .note {
+    display: none;
+}
+
+#participants .participants .participant .meta.pstate-0 {
+    color: #666;
+}
+
+#participants .participants .participant .meta.pstate-1 {
+    color: #669933;
+}
+
+#participants .participants .participant .meta.pstate-2 {
+    color: #ff9900;
+}
+
+#participants .participants .participant .meta.pstate-3 {
+    color: #cc0000;
+}
+
+#participants .participants .participant .meta.pstate-4 {
+    color: #ccc;
+}
+
+#participants .participants .participant a {
+    display: none;
+    position: absolute;
+    color: white;
+    text-decoration: none;
+    background-color: #ccc;
+    font-size: 16px;
+    padding: 0 0.4em 0.2em 0.4em;
+
+    border-radius: 1em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+}
+
+#participants .participants .participant:hover a {
+    display: block;
+}
+
+#participants .participants .participant a.delete {
+    left: 5px;
+    bottom: 5px;
+}
+
+#participants .participants .participant a.delete:hover {
+    background-color: #cc0000;
+}
+
+#participants .participants .participant [href="#info"] {
+    display: none;
+    right: 5px;
+    bottom: 5px;
+}
+
+#participants .participants .participant [href="#info"]:hover {
+    background-color: #215498;
+}
