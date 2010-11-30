@@ -225,8 +225,8 @@ module SecurityInterface
 
     if is_stable_release?
       oauth = {
-        :key => "Consumer key",
-        :secret => "Consumer secret"
+        :key => "nYoqrPcVPksEbaSb7G6XQ",
+        :secret => "hBC4mGiMoiwRL41fak97FbY0tJau8QgtPO9GqRg"
       }
     end
 
